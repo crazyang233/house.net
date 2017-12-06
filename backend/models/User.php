@@ -51,4 +51,12 @@ class User extends \yii\db\ActiveRecord
             'nickname' => 'Nickname',
         ];
     }
+
+    public static function ajaxpages($p)
+    {
+        echo '当前页是'.$p;die;
+        $psize = 2;
+        $count = Users::find()->count();
+        $total_p = ceil($count/$psize);
+    }
 }

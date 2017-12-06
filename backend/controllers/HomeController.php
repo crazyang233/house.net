@@ -13,6 +13,7 @@ class HomeController extends Controller
 {
     public $enableCsrfValidation = false;
     public function actionIndex(){
+
        return $this->render('home');
     }
     public function actionIndividual(){
@@ -48,5 +49,9 @@ class HomeController extends Controller
             echo 3;
         }
 
+    }
+    public function actionTest($value='')
+    {
+        echo 'test';
     }
 }

@@ -11,6 +11,7 @@ use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 use yii\web\Cookie;
 use yii\web\Controller;
+use yii\helpers\Url;
 AppAsset::register($this);
 $cookie = \yii::$app->request->cookies;
 $username = $cookie->getValue('name','null');
@@ -21,9 +22,9 @@ $id = $cookie->getValue('id','null');
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-<!--    <meta charset="--><?//= Yii::$app->charset ?><!--">-->
-<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge">-->
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1">-->
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
@@ -33,6 +34,7 @@ $id = $cookie->getValue('id','null');
 
 <div class="wrap"></div>
 <!--  顶部-->
+        <link rel="stylesheet" href="/assets/ad83b69/css/bootstrap.css" type="text/css">
         <link href="admin/css/public.css" rel="stylesheet" type="text/css">
         <script type="text/javascript" src="admin/js/jquery.min.js"></script>
         <script type="text/javascript" src="admin/js/global.js"></script>
@@ -80,6 +82,10 @@ $id = $cookie->getValue('id','null');
                 <ul>
                     <li><a href="article_category.html"><i class="articleCat"></i><em>文章分类</em></a></li>
                     <li><a href="article.html"><i class="article"></i><em>文章列表</em></a></li>
+                </ul>
+                <ul>
+                    <li><a href="<?= Url::to(['users/index'])?>"><i class="manager"></i><em>用户列表</em></a></li><!--展示和修改、删除一起-->
+                    <li><a href="<?= Url::to(['users/add'])?>"><i class="manager"></i><em>用户添加</em></a></li>
                 </ul>
                 <ul class="bot">
                     <li><a href="backup.html"><i class="backup"></i><em>数据备份</em></a></li>
